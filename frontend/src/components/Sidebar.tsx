@@ -1,10 +1,9 @@
 'use client'
 import Link from "next/link";
-import { IoMdMenu } from "react-icons/io";
-import {  FaAngleRight } from "react-icons/fa6";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { ChevronRight, Menu } from "lucide-react";
 interface sideLinks {
   icon?: React.ReactNode,
   title: string,
@@ -30,10 +29,10 @@ export default function Sidebar() {
           (
           <div className="flex items-center w-full">
             <h1 className="text-lg font-semibold pl-2">GydeXP</h1>
-            <span className="text-sm"><FaAngleRight/></span>
+            <span className="text-sm"><ChevronRight /></span>
      
           </div>
-          ) : <IoMdMenu/>
+          ) : <Menu/>
         }
       </button>
       <Tabs isOpen={isOpen} links={links}/>

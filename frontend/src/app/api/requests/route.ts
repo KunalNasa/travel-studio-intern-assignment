@@ -4,9 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 
 /**
- * @param req
- * @returns table logs data if successfull
- * @returns error if database is unreachable.
+    * @param req
+    * @returns table logs data if successfull
+    * @returns error if database is unreachable.
  */
 
 /**
