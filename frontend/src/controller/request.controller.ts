@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 // function to fetch data.
 const fetchLogs = async () => {
-  const res = await fetch(`${BASE_URL}/api/requests`);
+  const res = await fetch(`${BASE_URL}/api/requests`, { cache: 'no-store', next: { revalidate: 0 } });
   if (!res.ok) {
     throw new Error("Failed to fetch request logs");
   }
