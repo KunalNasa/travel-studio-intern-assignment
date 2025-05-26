@@ -45,7 +45,6 @@ export class RequestController {
   @Post()
   async postRequest(@Body() body: any): Promise<any> {
     try {
-        console.log("Body is",body);
         const { Body: requestText, WaId } = body;
         if(!requestText || !WaId){
             throw new Error("Bad Request");

@@ -36,6 +36,7 @@ export async function GET(req: NextRequest): Promise<any> {
         });
     } catch (error: any) {
         console.log("Error fetching requests from db", error);
+        // Vercel was caching this response and was not returning latests data from the DB, therefore added this cache-control to no-store. Now it's working fine.
         return NextResponse.json({
             success: false,
             message: "Internal Server Error"
