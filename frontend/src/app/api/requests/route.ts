@@ -15,7 +15,7 @@ import { NextRequest, NextResponse } from "next/server";
  * from there. But, since we are not hosting our NestJS backend therefore it is 
  * written for simplicity.
  */
-
+export const dynamic = "force-dynamic";
 export async function GET(req: NextRequest): Promise<any> {
     try {
         const requests = await prisma.requests.findMany({
