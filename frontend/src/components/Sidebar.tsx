@@ -1,9 +1,8 @@
 'use client'
 import Link from "next/link";
-import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronRight, Menu } from "lucide-react";
+import { ChevronRight, Menu, Table } from "lucide-react";
 interface sideLinks {
   icon?: React.ReactNode,
   title: string,
@@ -14,7 +13,7 @@ export default function Sidebar() {
     {
       title: "Logs",
       href: '/',
-      icon: <MdOutlineSpaceDashboard/>
+      icon: <Table />
     }
   ]
   const [isOpen, setIsOpen] = useState<boolean>(true);
