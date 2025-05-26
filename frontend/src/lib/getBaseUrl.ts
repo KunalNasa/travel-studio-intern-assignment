@@ -1,6 +1,6 @@
 const getBaseUrl = () => {
     if (process.env.NODE_ENV === 'production') {
-      return `https://${process.env.VERCEL_URL}`;
+      return ``;
     }
     return 'http://localhost:8000';
 };
