@@ -2,7 +2,6 @@
 import GenericLoader from "@/components/GenericLoader";
 import Header from "@/components/Header";
 import RequestDetails from "@/components/RequestTable";
-import Separator from "@/components/Separator";
 import { useRequestLogs } from "@/controller/request.controller";
 
 

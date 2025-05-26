@@ -1,0 +1,103 @@
+{
+    "name": "My workflow",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "872efa1f-0c3c-4365-8601-ec4d9ada4ab2",
+          "responseMode": "lastNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2,
+        "position": [
+          340,
+          200
+        ],
+        "id": "40e216e7-1305-495c-89a5-681dae3259c5",
+        "name": "Webhook",
+        "webhookId": "872efa1f-0c3c-4365-8601-ec4d9ada4ab2"
+      },
+      {
+        "parameters": {
+          "from": "+14155238886",
+          "to": "+918383036072",
+          "toWhatsapp": true,
+          "message": "Hello, Testing webhook workflow.",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.twilio",
+        "typeVersion": 1,
+        "position": [
+          820,
+          200
+        ],
+        "id": "26a36826-a0c4-47a9-8b87-f36fe3862d33",
+        "name": "Twilio1",
+        "credentials": {
+          "twilioApi": {
+            "id": "KmFCglxOAlDlo9Ks",
+            "name": "Twilio account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "http://localhost:8000/api/requests",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          600,
+          200
+        ],
+        "id": "23bb9f8c-7305-4a0b-b3ba-f25c677bb056",
+        "name": "HTTP Request",
+        "retryOnFail": true,
+        "maxTries": 2,
+        "executeOnce": false,
+        "notes": "The HTTP workflow is broken. Please fix it."
+      }
+    ],
+    "pinData": {},
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "HTTP Request",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTP Request": {
+        "main": [
+          [
+            {
+              "node": "Twilio1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "active": false,
+    "settings": {
+      "executionOrder": "v1"
+    },
+    "versionId": "d27a7ccd-cb69-4110-9847-f58ab12c9e55",
+    "meta": {
+      "templateCredsSetupCompleted": true,
+      "instanceId": "206bb9c924b6fc34ae9412f764a5fb4008a5f44dfa70d250fa4fe4a4ad78674d"
+    },
+    "id": "fsyj82hte2UXkeOf",
+    "tags": []
+  }

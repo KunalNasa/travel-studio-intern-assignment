@@ -16,7 +16,7 @@ import { NextRequest, NextResponse } from "next/server";
  * written for simplicity.
  */
 
-export async function GET(req: NextRequest) : Promise<any> {
+export async function GET(req: NextRequest): Promise<any> {
     try {
         const requests = await prisma.requests.findMany({
             where: {
@@ -29,12 +29,20 @@ export async function GET(req: NextRequest) : Promise<any> {
             data: requests
         }
 
-        return NextResponse.json(respone, {status: 200});
+        return NextResponse.json(respone, {
+            status: 200, headers: {
+                'Cache-Control': 'no-store',
+            },
+        });
     } catch (error: any) {
         console.log("Error fetching requests from db", error);
         return NextResponse.json({
             success: false,
             message: "Internal Server Error"
-        }, {status : 500});
+        }, {
+            status: 500, headers: {
+                'Cache-Control': 'no-store',
+            },
+        });
     }
 }
