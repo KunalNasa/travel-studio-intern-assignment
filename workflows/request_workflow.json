@@ -21,7 +21,7 @@
     {
       "parameters": {
         "from": "+14155238886",
-        "to": "+918383036072",
+        "to": "+91XXXXXXXXXX",
         "toWhatsapp": true,
         "message": "Request received! Our staff will assist you soon.",
         "options": {}
@@ -40,8 +40,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "twilioApi": {
-          "id": "KmFCglxOAlDlo9Ks",
-          "name": "Twilio account"
+          "id": "<TWILIO_CREDENTIAL_ID>",
+          "name": "<TWILIO_CREDENTIAL_NAME>"
         }
       }
     },
