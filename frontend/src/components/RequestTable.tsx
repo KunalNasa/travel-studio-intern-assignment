@@ -62,6 +62,7 @@ export default function RequestTable({ data }: Props) {
                 {new Date(item.createdAt).toLocaleString()}
               </td>
               <td className="px-4 py-2 capitalize text-sm font-medium">
+                {/* if in future we add some more status */}
                 <span
                   className={`px-2 py-1 rounded-full ${
                     item.status.trim() === "pending"

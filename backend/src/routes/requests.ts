@@ -38,12 +38,19 @@ export class RequestController {
   /**
      * POST /requests
      * @param {any} body - Request body containing `Body` (message text) and `WaId` (guest phone number)
-     * @returns {Promise<any>} The same request body that was sent
+     * @returns {Promise<any>} If success returns API response
+     * @throws error to the exception filter if exception occured.
+     * 
   */
   @Post()
   async postRequest(@Body() body: any): Promise<any> {
     try {
+        console.log("Body is",body);
         const { Body: requestText, WaId } = body;
+        if(!requestText || !WaId){
+            throw new Error("Bad Request");
+        }
+        
         const guestPhone = "+" + WaId;
         await this.prisma.requests.create({
           data: {
@@ -64,7 +71,7 @@ export class RequestController {
         };
         return response;
     } catch (error: any) {
-        
+        throw new Error(error.message);
     }
   }
 }
