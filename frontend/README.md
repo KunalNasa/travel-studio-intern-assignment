@@ -8,10 +8,11 @@ This is NextJS project made for the GydeXP assignment. This involves the fronten
 
 ## Hosted On 
 * Vercel
+Live link: https://travel-studio-intern-assignment.vercel.app/
 
 ## Pages
 * / -> Renders those requests that have status as pending in table form. The ui is responsive and mobile friendly.
- 
+
 
 ## Project Structure
 ``` 
